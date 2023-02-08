@@ -1,23 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: ReplicationController
 metadata:
-  name: nginx-deployment
-  labels:
-    app: web
+  name: wordpress 
 spec:
-  selector:
-    matchLabels:
-      app: web
-  replicas: 5
-  strategy:
-    type: RollingUpdate
+  replicas: 1
   template:
     metadata:
       labels:
-        app: web
+        role: wordpress 
     spec:
       containers:
-       - name: nginx
-          image: nginx
-          ports:
-           - containerPort: 80
+      - name: wordpress 
+        image: wordpress:php7.1-apache
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
