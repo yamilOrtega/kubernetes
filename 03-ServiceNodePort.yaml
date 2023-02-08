@@ -7,7 +7,7 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-    NodePort : 31111
+    NodePort : 31111        
     protocol : TCP
   selector:
     app : web
