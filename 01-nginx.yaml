@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: wordpress 
 spec:
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
