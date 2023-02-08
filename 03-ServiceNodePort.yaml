@@ -6,7 +6,7 @@ spec:
   type: NodePort
   ports:
   - port: 80
-    nodePort : 3111
+    nodePort : 31111
     targetPort: 8080            
     protocol : TCP
   selector:
