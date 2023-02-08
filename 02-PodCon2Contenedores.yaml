@@ -11,4 +11,4 @@ spec:
     - name: helper-ctr
       image : nginx:latest
       ports:
-      - containerPort: 9113
+      - containerPort: 80
