@@ -1,18 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dashboard-ingress
-  namespace: mongodb-ingress-namespace
+  name: nginx-ingress
 spec:
   rules:
-  - host: dashboard.coms
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: mongo-express-service
+            name: nginx-service
             port:
-              number: 80
-      
+              name: http
