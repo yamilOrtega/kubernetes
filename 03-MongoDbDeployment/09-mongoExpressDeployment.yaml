@@ -36,6 +36,8 @@ spec:
               name: mongodb-configmap
               key: database_url
 ##Seccion de servicio
+#En minikube, este servicio se puede exponer a traves del comando
+#minikube service mongo-express-service
 ---
 apiVersion: v1
 kind: Service

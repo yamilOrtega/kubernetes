@@ -4,7 +4,8 @@ metadata:
   name: nginx-ingress
 spec:
   rules:
-  - http:
+  - host: undominiodistinto.com
+    http:
       paths:
       - path: /
         pathType: Prefix
