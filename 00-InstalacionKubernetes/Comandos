@@ -4,7 +4,7 @@ $sudo apt install net-tools
 $ifconfig
 $sudo hostnamectl set-hostname "master.congresofoss.net"
 
-/*En los nodos aplicar */
+#En los nodos aplicar 
 $sudo hostnamectl set-hostname "worker1.congresofoss.net"
 $sudo hostnamectl set-hostname "worker2.congresofoss.net"
 
@@ -13,12 +13,12 @@ $sudo vi /etc/hosts
 192.168.184.146   worker1.congresofoss.net worker1
 192.168.184.147   worker2.congresofoss.net worker2
 
-/*Se quita el swap*/
+#Se quita el swap
 $sudo swapoff -a
 $sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 
-/*Se cargan modulos*/
+#Se cargan modulos
 $sudo tee /etc/modules-load.d/containerd.conf <<EOF
 overlay
 br_netfilter
@@ -36,9 +36,9 @@ EOF
 
 
 $sudo sysctl --system
-/*Se habilita certificado*/
+#Se habilita certificado
 $sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
-/*Se habilita repositorio docker*/
+#Se habilita repositorio docker
 $sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
 $sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 $sudo apt upgrade
@@ -49,25 +49,23 @@ $sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/
 $sudo systemctl restart containerd
 $sudo systemctl enable containerd
 
-/*Se habilitan repositorios de kubernetes*/
+#Se habilitan repositorios de kubernetes
 $curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-
 $sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 $sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-jammy main"
 
 
-
+#Se instala el kubernetes
 $sudo apt update
 $sudo apt install -y kubelet kubeadm kubectl
 $sudo apt-mark hold kubelet kubeadm kubectl
 
 
-
-
-/*Se agrega un master node*/
+#Se agrega un master node
 $sudo kubeadm init --control-plane-endpoint=master.congresofoss.net
 
-/*salida para unir nodos*/
+#salida para unir nodos
+#Este es una salida que puede variar dependiendo de la salida
 $kubeadm join master.congresofoss.net:6443 --token xduu1t.ehpdpg5ief8b8fpp \
         --discovery-token-ca-cert-hash sha256:56976e637fe94293cf4c3594a8db856796164b471aa5be9582418ee518976339
 
