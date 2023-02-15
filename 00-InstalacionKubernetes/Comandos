@@ -84,5 +84,5 @@ kubeadm join master.congresofoss.net:6443 --token 2n2d9v.jxxmmx7dlnxg5vc8 \
 
 
 #los nodes no estaran listos sino hasta que se instale calico
-$curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
-$kubectl apply -f calico.yaml
+$kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+
