@@ -7,7 +7,18 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm repo list
 
-helm upgrade --install myingress ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace --values values.yml
+helm upgrade --install my-ingress ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace --values values.yml
 
 
 kubectl apply -f 05Ingress.yaml
+
+
+
+
+kubectl get services nginx-ingress-nginx-ingress
+kubectl get services nginx-ingress-nginx-ingress
+helm repo update
+helm install nginx-ingress nginx-stable/nginx-ingress --set rbac.create=true
+
+kubectl get pods --all-namespaces -l app=nginx-ingress-nginx-ingress
+kubectl get services nginx-ingress-nginx-ingres

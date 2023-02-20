@@ -17,3 +17,4 @@ spec:
       containers:
       - image: nginx
         name: nginx
+#todo Expose likea clusterip address

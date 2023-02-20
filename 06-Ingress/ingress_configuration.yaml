@@ -1,3 +1,5 @@
+## Configuration changed from 
+## $helm show values ingress-nginx/ingress-nginx > /tmp/ingress-nginx
 ## nginx configuration
 ## Ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/index.md
 ##
