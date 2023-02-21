@@ -31,3 +31,10 @@ spec:
             name: nginx-deploy-green
             port:
               number: 80
+      - path: /mongo
+        pathType: Prefix
+        backend:
+          service:
+            name: mongo-express-service
+            port:
+              number: 8081
