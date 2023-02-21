@@ -44,4 +44,4 @@ spec:
           service:
             name: mongo-express-service
             port:
-              number: 80
+              number: 8081
