@@ -3,15 +3,20 @@
 $sudo apt install net-tools
 $ifconfig
 $sudo hostnamectl set-hostname "master.congresofoss.net"
+#$sudo hostnamectl set-hostname "main.congresofoss.net"
 
 #En los nodos aplicar 
 $sudo hostnamectl set-hostname "worker1.congresofoss.net"
 $sudo hostnamectl set-hostname "worker2.congresofoss.net"
 
 $sudo vi /etc/hosts
-192.168.122.19   master.congresofoss.net master
-192.168.122.231   worker1.congresofoss.net worker1
-192.168.184.232   worker2.congresofoss.net worker2
+192.168.184.148   master.congresofoss.net master
+192.168.184.146   worker1.congresofoss.net worker1
+192.168.184.147   worker2.congresofoss.net worker2
+
+#10.1.0.7   main.congresofoss.net main
+#10.1.0.8   node1.congresofoss.net node1
+#10.1.0.9   node2.congresofoss.net node2
 
 #Se quita el swap
 $sudo swapoff -a
@@ -64,25 +69,46 @@ $sudo apt-mark hold kubelet kubeadm kubectl
 #Se agrega un master node
 $sudo kubeadm init --control-plane-endpoint=master.congresofoss.net
 
-mkdir -p $HOME/.kube
+
+
+
+#salida para unir nodos
+
+
+#Your Kubernetes control-plane has initialized successfully!
+
+#To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
+#Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+#You should now deploy a pod network to the cluster.
+#Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+#  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+#You can now join any number of control-plane nodes by copying certificate authorities
+#and service account keys on each node and then running the following as root:
+
+  kubeadm join master.congresofoss.net:6443 --token 6h3x0j.zn9y5ukyi3ri8c7b \
+        --discovery-token-ca-cert-hash sha256:047482a373b84ae655d3780d894fa3e207cd72ab5aa3364e75bad661dd010bbc \
+        --control-plane
+
+#Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join master.congresofoss.net:6443 --token 6h3x0j.zn9y5ukyi3ri8c7b \
+        --discovery-token-ca-cert-hash sha256:047482a373b84ae655d3780d894fa3e207cd72ab5aa3364e75bad661dd010bbc
 
 
-#salida para controles
-
-  kubeadm join master.congresofoss.net:6443 --token 2n2d9v.jxxmmx7dlnxg5vc8 \
-	--discovery-token-ca-cert-hash sha256:ede2bc3a421f6bc99bbc357131718a1ca4e985f38a57b17fff90f1abf2a51cd4 \
-	--control-plane 
+#Este es una salida que puede variar dependiendo del cluster
+$kubeadm join master.congresofoss.net:6443 --token 6h3x0j.zn9y5ukyi3ri8c7b \
+        --discovery-token-ca-cert-hash sha256:047482a373b84ae655d3780d894fa3e207cd72ab5aa3364e75bad661dd010bbc
 
 
-#Este es una salida que puede variar dependiendo de la salida
-kubeadm join master.congresofoss.net:6443 --token 2n2d9v.jxxmmx7dlnxg5vc8 \
-	--discovery-token-ca-cert-hash sha256:ede2bc3a421f6bc99bbc357131718a1ca4e985f38a57b17fff90f1abf2a51cd4 
-
-
-
-#los nodes no estaran listos sino hasta que se instale calico
-$kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+#Instalar calico
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
 
