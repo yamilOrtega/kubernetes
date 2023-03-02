@@ -20,7 +20,7 @@ spec:
           claimName: pv-claim-mysql
       containers:
       - name: mysql
-        image: mysql:5.7
+        image: mysql:5.8
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
