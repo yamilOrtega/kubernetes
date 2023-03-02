@@ -15,9 +15,9 @@ spec:
         app: mysql
     spec:
       volumes:
-      - name: mysql-pv
+      - name: pv-mysql
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: pv-claim-mysql
       containers:
       - name: mysql
         image: mysql:latest
@@ -43,7 +43,7 @@ spec:
               name: mysql-user-pass
               key: password
         volumeMounts:
-        - name: mysql-pv
+        - name: pv-mysql
           mountPath: /var/lib/mysql
         ports:
         - containerPort: 3306
