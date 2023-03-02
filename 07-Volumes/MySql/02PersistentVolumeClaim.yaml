@@ -4,7 +4,8 @@ metadata:
   name: pvc-claim-mysql                                                                        
 spec:                                                                                         
   accessModes:                                                                                
-    - ReadWriteOnce                                                                           
+    - ReadWriteOnce
+  storageClassName: nfs                                                                           
   resources:                                                                                  
     requests:                                                                                 
       storage: 250Mi
