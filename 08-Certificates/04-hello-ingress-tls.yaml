@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - hello.peladonerd.com
+    - hello.congresofoss.com
     secretName: hello-tls
   rules:
-  - host: hello.peladonerd.com
+  - host: hello.congresofoss.com
     http:
       paths:
       - path: /
