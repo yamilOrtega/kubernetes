@@ -5,6 +5,6 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 192.168.122.240-192.168.122.25.00
+  - 192.168.122.240-192.168.122.250
   #Azure Ip Address
   #- 10.1.0.100-10.1.0.200
