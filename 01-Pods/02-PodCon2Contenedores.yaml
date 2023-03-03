@@ -5,10 +5,10 @@ metadata:
 spec:
   containers:
     - name: web-ctr
-      image : nginx
+      image : gcr.io/google-samples/hello-app:1.0
       ports:
         - containerPort: 8080
     - name: helper-ctr
-      image : nginx:latest
+      image : gcr.io/google-samples/hello-app:1.0
       ports:
       - containerPort: 80
