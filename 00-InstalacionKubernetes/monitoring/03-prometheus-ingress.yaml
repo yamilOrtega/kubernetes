@@ -12,6 +12,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: hello-v1-svc
+            name: prometheus-service
             port: 
               number: 80
