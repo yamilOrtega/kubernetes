@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-prometheus-congresofoss
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: prometheus.congresofoss.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-v1-svc
+            port: 
+              number: 80
