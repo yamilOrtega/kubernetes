@@ -13,5 +13,8 @@ kubectl patch serviceaccount default \
 kubectl create namespace congresofoss-namespace
 
       #--docker-email=<your-acr-email>
-#kubectl apply -f 01-congresofoss-app.yaml
+kubectl apply -f 01-congresofoss-app.yaml
+kubectl apply -f 02-congresofoss-ingress.yaml
+kubectl apply -f 03-congresofoss-issuer.yaml
+kubectl apply -f 04-congresofoss-ingress-tls.yaml
     
