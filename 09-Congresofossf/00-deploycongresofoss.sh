@@ -10,6 +10,8 @@ kubectl create secret docker-registry acr-auth \
 kubectl patch serviceaccount default \
   -p '{"imagePullSecrets": [{"name": "acr-auth"}]}'
 
+kubectl create namespace congresofoss-namespace
+
       #--docker-email=<your-acr-email>
 #kubectl apply -f 01-congresofoss-app.yaml
     

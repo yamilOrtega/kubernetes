@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: congresofoss-v1
+  namespace: congresofoss-namespace
 spec:
   replicas: 1
   selector:
@@ -32,6 +33,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: congresofoss-v1-svc
+  namespace: congresofoss-namespace
 spec:
   selector:
     app: congresofoss-v1
