@@ -10,9 +10,10 @@ $sudo hostnamectl set-hostname "worker1.congresofoss.net"
 $sudo hostnamectl set-hostname "worker2.congresofoss.net"
 
 $sudo vi /etc/hosts
-192.168.184.148   master.congresofoss.net master
-192.168.184.146   worker1.congresofoss.net worker1
-192.168.184.147   worker2.congresofoss.net worker2
+192.168.122.19   main.congresofoss.net master
+192.168.122.30   worker1.congresofoss.net worker1
+192.168.122.31   worker2.congresofoss.net worker2
+
 
 #10.1.0.7   main.congresofoss.net main
 #10.1.0.8   node1.congresofoss.net node1
