@@ -12,6 +12,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-deploy-main
+            name: nginx-service-main
             port: 
               number: 80
