@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: wordpress-app
-        image: wordpress
+        image: wordpress:latest
+        #image: httpd
         ports:
         - containerPort: 80
