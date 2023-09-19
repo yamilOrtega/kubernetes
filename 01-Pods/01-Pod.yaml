@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hello-pod 
+  name: hello-pod-with-1-container
   labels : 
     app : web
 spec:
