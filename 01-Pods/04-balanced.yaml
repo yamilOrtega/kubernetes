@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: hello
-        image: grc.io/google-samples/hello-app:1.0
+        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
         ports:
         - containerPort: 8080
