@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hello-certificate-staging
+  
+spec:
+  secretName: hello-certificate-staging
+  issuerRef:
+    name: letsencrypt-staging
+  dnsNames:
+  - hello.congresofoss.com
