@@ -12,7 +12,6 @@ spec:
   tls:
   - hosts:
     - hello.congresofoss.com
-    #secretName: hello-tls
     secretName: hello-certificate-staging
   rules:
   - host: hello.congresofoss.com
