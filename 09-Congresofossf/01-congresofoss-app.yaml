@@ -4,7 +4,7 @@ metadata:
   name: congresofoss-v1
   namespace: congresofoss-namespace
 spec:
-  replicas: 1
+  replicas: 7
   selector:
     matchLabels:
       app: congresofoss-v1
