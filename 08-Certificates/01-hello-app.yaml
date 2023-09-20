@@ -14,10 +14,12 @@ spec:
     spec:
       containers:
       - name: hello
-        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+        #image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
+        image: elcorreodeyamil/congresofoss
         imagePullPolicy: IfNotPresent        
         ports:
-        - containerPort: 8080
+        #- containerPort: 8080
+        - containerPort: 5000
         resources:
           requests:
             memory: "64Mi"
@@ -38,4 +40,5 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8080
+    #targetPort: 8080
+    targetPort: 5000
