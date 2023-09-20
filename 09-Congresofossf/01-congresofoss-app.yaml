@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: congresofoss
-        image: congresofosscr.azurecr.io/congresofoss:latest
+        #image: congresofosscr.azurecr.io/congresofoss:latest
+        image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 80
