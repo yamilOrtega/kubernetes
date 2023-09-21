@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-loadbalancer-service
+  name: httpd-loadbalancer-service
 spec:
   selector:
-    app: wordpress-app
+    app: httpd-app
   ports:
   - protocol: TCP
     port: 80

@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-app-deployment
+  name: httpd-app-deployment
   labels:
-    app: wordpress-app
+    app: httpd-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: wordpress-app
+      app: httpd-app
   template:
     metadata:
       labels:
-        app: wordpress-app
+        app: httpd-app
     spec:
       containers:
-      - name: wordpress-app
-        image: wordpress:latest
-        #image: httpd
+      - name: httpd-app
+        image: httpd
         ports:
         - containerPort: 80
