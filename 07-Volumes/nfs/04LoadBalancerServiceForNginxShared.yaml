@@ -4,7 +4,8 @@ metadata:
   name: nfs-web-loadbalancer-service
 spec:
   selector:
-    app: nfs-web
+    #app: nfs-web
+    app: local-web
   ports:
   - protocol: TCP
     port: 80
