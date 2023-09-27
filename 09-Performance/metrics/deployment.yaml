@@ -31,22 +31,22 @@ spec:
             cpu: 100m
             memory: 200Mi
         ports:
-        - name: https
+        - name: http
           containerPort: 10250
           protocol: TCP
         readinessProbe:
           httpGet:
             path: /readyz
-            port: https
-            scheme: HTTPS
+            port: http
+            scheme: HTTP
           periodSeconds: 10
           failureThreshold: 3
           initialDelaySeconds: 20
         livenessProbe:
           httpGet:
             path: /livez
-            port: https
-            scheme: HTTPS
+            port: http
+            scheme: HTTP
           periodSeconds: 10
           failureThreshold: 3
         securityContext:
